@@ -5,7 +5,6 @@ import os
 import sys
 # used for directory handling
 import glob
-
 import time
 
 MY_EXCHANGE = 'BINANCE'

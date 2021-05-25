@@ -51,7 +51,7 @@ from helpers.parameters import (
 
 # Load creds modules
 from helpers.handle_creds import (
-    load_correct_creds
+    load_correct_creds, test_api_key
 )
 
 
@@ -486,6 +486,7 @@ if __name__ == '__main__':
     LOG_FILE = parsed_config['script_options'].get('LOG_FILE')
     BINANCE_US = parsed_config['script_options'].get('BINANCE_US')
     DEBUG_SETTING = parsed_config['script_options'].get('DEBUG')
+    AMERICAN_USER = parsed_config['script_options'].get('AMERICAN_USER')
 
     # Load trading vars
     PAIR_WITH = parsed_config['trading_options']['PAIR_WITH']
@@ -516,14 +517,16 @@ if __name__ == '__main__':
 
 
     # Authenticate with the client, Ensure API key is good before continuing
-    client = Client(access_key, secret_key, tld='us' if BINANCE_US else 'com')
-    # api_ready, msg = test_api_key(client, BinanceAPIException)
-    # if api_ready is not True:
-    #     exit(f'{txcolors.SELL_LOSS}{msg}{txcolors.DEFAULT}')
-    # client = Client(access_key, secret_key)
-    #api_ready, msg = test_api_key(client, BinanceAPIException)
-    #if api_ready is not True:
-    #    exit(f'{txcolors.SELL_LOSS}{msg}{txcolors.DEFAULT}')
+    if AMERICAN_USER:
+        client = Client(access_key, secret_key, tld='us')
+    else:
+        client = Client(access_key, secret_key)
+        
+    # If the users has a bad / incorrect API key.
+    # this will stop the script from starting, and display a helpful error.
+    api_ready, msg = test_api_key(client, BinanceAPIException)
+    if api_ready is not True:
+       exit(f'{txcolors.SELL_LOSS}{msg}{txcolors.DEFAULT}')
 
     # Use CUSTOM_LIST symbols if CUSTOM_LIST is set to True
     if CUSTOM_LIST: tickers=[line.strip() for line in open(TICKERS_LIST)]
