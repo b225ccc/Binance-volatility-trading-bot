@@ -15,7 +15,7 @@ services:
       - TEST_MODE
       - LOG_TRADES
       - LOG_FILE
-      - BINANCE_US
+      - AMERICAN_USER
       - CHANGE_IN_PRICE
       - MAX_COINS
       - PAIR_WITH

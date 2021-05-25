@@ -14,10 +14,10 @@ test:
 EOF
 
 # script options
-[[ -n $TEST_MODE ]]  && sed -i "s/\(  TEST_MODE: \).*$/\1${TEST_MODE}/" $CONFIG_FILE
-[[ -n $LOG_TRADES ]] && sed -i "s/\(  LOG_TRADES: \).*$/\1${LOG_TRADES}/" $CONFIG_FILE
-[[ -n $LOG_FILE ]]   && sed -i "s~\(  LOG_FILE: \).*$~\1${LOG_FILE}~" $CONFIG_FILE      # $LOG_FILE could contain a slash, so use different delimiter
-[[ -n $BINANCE_US ]] && sed -i "s/\(  BINANCE_US: \).*$/\1${BINANCE_US}/" $CONFIG_FILE
+[[ -n $TEST_MODE ]]     && sed -i "s/\(  TEST_MODE: \).*$/\1${TEST_MODE}/" $CONFIG_FILE
+[[ -n $LOG_TRADES ]]    && sed -i "s/\(  LOG_TRADES: \).*$/\1${LOG_TRADES}/" $CONFIG_FILE
+[[ -n $LOG_FILE ]]      && sed -i "s~\(  LOG_FILE: \).*$~\1${LOG_FILE}~" $CONFIG_FILE      # $LOG_FILE could contain a slash, so use different delimiter
+[[ -n $AMERICAN_USER ]] && sed -i "s/\(  AMERICAN_USER: \).*$/\1${AMERICAN_USER}/" $CONFIG_FILE
 
 # trading options
 [[ -n $CHANGE_IN_PRICE ]]  && sed -i "s/\(  CHANGE_IN_PRICE: \).*$/\1${CHANGE_IN_PRICE}/" $CONFIG_FILE

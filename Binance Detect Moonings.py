@@ -484,7 +484,6 @@ if __name__ == '__main__':
     LOG_TRADES = parsed_config['script_options'].get('LOG_TRADES')
     LOG_DIR = parsed_config['script_options'].get('LOG_DIR')
     LOG_FILE = parsed_config['script_options'].get('LOG_FILE')
-    BINANCE_US = parsed_config['script_options'].get('BINANCE_US')
     DEBUG_SETTING = parsed_config['script_options'].get('DEBUG')
     AMERICAN_USER = parsed_config['script_options'].get('AMERICAN_USER')
 
