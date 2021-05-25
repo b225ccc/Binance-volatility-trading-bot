@@ -579,7 +579,7 @@ if __name__ == '__main__':
             for module in SIGNALLING_MODULES:
                 print(f'Starting {module}')
                 mymodule[module] = importlib.import_module(module)
-                t = threading.Thread(target=mymodule[module].do_work, args=("signalsample_us.txt",) if BINANCE_US else ())
+                t = threading.Thread(target=mymodule[module].do_work, args=())
                 t.daemon = True
                 t.start()
                 time.sleep(2)
