@@ -8,9 +8,6 @@ cat << EOF > $CREDS_FILE
 prod:
   access_key: $PROD_ACCESS_KEY
   secret_key: $PROD_SECRET_KEY
-test:
-  access_key: $TEST_ACCESS_KEY
-  secret_key: $TEST_SECRET_KEY
 EOF
 
 # script options

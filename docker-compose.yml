@@ -10,15 +10,13 @@ services:
     environment:
       - PROD_ACCESS_KEY
       - PROD_SECRET_KEY
-      - TEST_ACCESS_KEY
-      - TEST_SECRET_KEY
-      - TEST_MODE
+      - TEST_MODE=true
       - LOG_TRADES
       - LOG_FILE
-      - AMERICAN_USER
-      - CHANGE_IN_PRICE
+      - AMERICAN_USER=true
+      - CHANGE_IN_PRICE=4
       - MAX_COINS
-      - PAIR_WITH
-      - STOP_LOSS
-      - TAKE_PROFIT
+      - PAIR_WITH=USDT
+      - STOP_LOSS=9
+      - TAKE_PROFIT=4
       - TIME_DIFFERENCE
